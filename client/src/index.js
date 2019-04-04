@@ -15,6 +15,9 @@ import Home from './routes/Home'
 import Mycourse from './routes/Mycourse'
 import Person from './routes/Person'
 
+import'./static/css/reset.css'
+import './static/css/common.less'
+
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
