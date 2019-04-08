@@ -5,6 +5,7 @@ import Register from './person/Register'
 import Tip from './person/Tip'
 import Info from './person/Info'
 import { checkLogin } from '../api/person.js'
+import '../static/css/person.less'
 
 export default class Person extends Component {
   constructor(props, context) { 
@@ -15,12 +16,18 @@ export default class Person extends Component {
     }
   }
   
-  // use static getDerivedStateFromProps(props, state)  !!!
   async componentWillMount() {
     let result = await checkLogin(),
       isLogin = parseFloat(result.code) === 0 ? true : false;
     this.setState({isLogin})  
   }
+
+  async componentWillReceiveProps(nextProps, nextState) {
+    let result = await checkLogin(),
+      isLogin = parseFloat(result.code) === 0 ? true : false;
+    this.setState({ isLogin });
+  }
+  
   
   render() {
     return (
