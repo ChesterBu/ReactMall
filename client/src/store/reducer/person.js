@@ -14,6 +14,8 @@ export default function person(state = INIT_STATE, action) {
                 state.baseInfo = payload.data
             }
             break;
+        default:
+            break;
     }
     return state;
 }

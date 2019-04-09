@@ -15,10 +15,6 @@ function loginFail() {
 
 
 class Login extends Component {
-  constructor(props,context) { 
-    super(props,context)
-  }
-
   handleSubmit = ev => { 
     ev.preventDefault()
     // values{password: "2",userName: "1"}

@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import {
-    withRouter,NavLink
+    NavLink
 } from 'react-router-dom'
 import { Icon } from 'antd'
 
 export default class NavBottom extends Component {
-  constructor(props, context) { 
-    super(props,context)
-  }
   render() {
     return (
       <footer className="footerNavBox">

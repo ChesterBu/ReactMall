@@ -8,14 +8,9 @@ import { checkLogin } from '../api/person.js'
 import '../static/css/person.less'
 
 export default class Person extends Component {
-  constructor(props, context) { 
-    super(props, context)
-    
-    this.state = {
-      isLogin:false
-    }
+  state = {
+    isLogin:false
   }
-  
   async componentWillMount() {
     let result = await checkLogin(),
       isLogin = parseFloat(result.code) === 0 ? true : false;

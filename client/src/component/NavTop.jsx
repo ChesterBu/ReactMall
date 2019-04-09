@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { Icon } from "antd";
 import Transition from "react-transition-group/Transition";
 
@@ -18,12 +17,9 @@ const duration = 400,
   };
 
 export default class NavTop extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      in: false
-    };
-  }
+  state = {
+    in: false
+  };
   render() {
     return (
       <header className="headerNavBox">

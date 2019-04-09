@@ -6,10 +6,7 @@ import { exitLogin } from "../../api/person";
 import action from "../../store/action";
 
 class Info extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
+  
   componentWillMount() {
     let { baseInfo,queryBaseInfo } = this.props;
     if (!baseInfo) { 
