@@ -21,7 +21,7 @@ import './static/css/common.less'
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
-            <div>
+            <>
                 <NavTop />
                 <main className='container'>
                     <Switch>
@@ -32,7 +32,7 @@ ReactDOM.render(<Provider store={store}>
                     </Switch>
                 </main>
                 <NavBottom />
-            </div>
+            </>
         </LocaleProvider>
     </HashRouter>
 </Provider>

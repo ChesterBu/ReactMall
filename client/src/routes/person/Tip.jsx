@@ -6,7 +6,7 @@ class Tip extends Component {
   render() {
     let { history } = this.props 
     return (
-      <div>
+      <>
         <Alert
           type="warning"
           message="未登录提醒"
@@ -28,7 +28,7 @@ class Tip extends Component {
         >
           立即注册
         </Button>
-      </div>
+      </>
     );
   }
 }
