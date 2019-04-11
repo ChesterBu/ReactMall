@@ -6,6 +6,11 @@ import action from "../../store/action";
 
 class List extends Component {
   state = { isLoading: false };
+
+  componentWillReceiveProps() {
+    //=>在当前案例中，触发这个生命周期函数，说明传递给组件的属性改变了（路由重新渲染或者是REDUX容器中的状态改变了）
+    this.setState({ isLoading: false });
+  }
   componentDidMount() {
     let { queryBanner, bannerData, courseData, queryList } = this.props;
     if (!bannerData || bannerData.length === 0) {
@@ -15,10 +20,23 @@ class List extends Component {
       queryList(); //=>DISPATCH
     }
   }
+  loadMore = () => {
+    let { queryList, courseData, courseType } = this.props;
 
+    //=>防止重复点击
+    if (this.state.isLoading) return;
+    this.setState({ isLoading: true });
+
+    //=>重新发送新的DISPATCH：PAGE是在当前PAGE的基础上累加1，TYPE一定要沿用当前筛选的TYPE，FLAG点击加载更多，是向REDUX容器中追加新获取的信息
+    queryList({
+      page: courseData.page + 1,
+      type: courseType,
+      flag: "push"
+    });
+  };
   quertType = () => {
     let { courseType } = this.props,
-      text = "全部课程";
+      text = '';
     switch (courseType) {
       case "react":
         text = "REACT框架开发课程";
@@ -28,6 +46,9 @@ class List extends Component {
         break;
       case "xiaochengxu":
         text = "小程序开发课程";
+        break;
+      default:
+        text = "全部课程";
         break;
     }
     return text;
