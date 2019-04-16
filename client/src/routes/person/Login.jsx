@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Form, Icon, Input, Button, Modal } from "antd";
 import md5 from 'blueimp-md5'
 import { login } from '../../api/person'
+import action from '../../store/action';
 
 function loginFail() {
   const modal = Modal.error({
@@ -78,4 +79,4 @@ class Login extends Component {
   }
 }
     
-export default Form.create()(connect()(Login))
+export default Form.create()(connect(null, { ...action.course, ...action.person })(Login))
